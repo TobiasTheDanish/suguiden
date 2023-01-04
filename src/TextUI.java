@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TextUI {
@@ -55,10 +56,20 @@ public class TextUI {
 		System.out.println(string);
 	}
 
-	public String getInput(String msg) {
+	public String getInput(String msg, String expectedInput) {
 		displayMessage(msg);
-		String s = "|  Input: ";
-		System.out.print(s);
+		StringBuilder s = new StringBuilder();
+		s.append("|  ");
+
+		if (expectedInput != null && !expectedInput.trim().isEmpty()) {
+			s.append("(")
+			 .append(expectedInput)
+			 .append(") ");
+		}
+
+		s.append("> ");
+
+		System.out.print(s.toString());
 		
 		String input = scanner.next();
 
@@ -72,7 +83,7 @@ public class TextUI {
 
 	public int getIntInput(String msg) {
 		while (true) {
-			String input = getInput(msg);
+			String input = getInput(msg, "#");
 
 			try {
 				int i = Integer.parseInt(input);
@@ -83,13 +94,24 @@ public class TextUI {
 		}
 	}
 
-	public void displayArray(String msg, Month[] array) {
+	public void displayList(String msg, ArrayList<Month> array) {
 		displayMessage(msg);
 		
 		StringBuilder s = new StringBuilder();
 		s.append("|");
-		for (int i = 0; i < array.length; i++) {
-			s.append("\n|  ").append(i+1).append(")  ").append(array[i].getName());
+		for (int i = 0; i < array.size(); i++) {
+			s.append("\n|  ").append(i+1).append(")  ").append(array.get(i).getName());
+		}
+		System.out.println(s);
+	}
+
+	public void displayOptions(String msg, String[] options) {
+		displayMessage(msg);
+		
+		StringBuilder s = new StringBuilder();
+		s.append("|");
+		for (int i = 0; i < options.length; i++) {
+			s.append("\n|  ").append(i+1).append(")  ").append(options[i]);
 		}
 		System.out.println(s);
 	}

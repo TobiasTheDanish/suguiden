@@ -1,6 +1,9 @@
+./src/Action.java
 ./src/App.java
 ./src/FileIO.java
 ./src/Main.java
 ./src/Month.java
+./src/RegistrationMenu.java
+./src/SelectionMenu.java
 ./src/StartMenu.java
 ./src/TextUI.java

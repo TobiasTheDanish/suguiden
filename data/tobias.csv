@@ -1,0 +1,13 @@
+month;salary;skippedSu?;maxSalary
+Januar;10000.0;false;17876.0;true
+Februar;30000.0;false;17876.0;true
+Marts;12034.123;false;17876.0;true
+April;5000.0;false;17876.0;true
+Maj;12345.0;false;17876.0;true
+Juni;0.0;false;0.0;false
+Juli;0.0;false;0.0;false
+August;0.0;false;0.0;false
+September;0.0;false;0.0;false
+Oktober;9000.0;false;17876.0;true
+November;0.0;false;0.0;false
+December;3500.0;false;17876.0;true

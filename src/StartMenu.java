@@ -5,10 +5,9 @@ public class StartMenu {
 
 	public File getUserFile(boolean isCurrentUser, TextUI textUI) {
 		while (true) {
-			String welcome = isCurrentUser ? "Velkommen tilbage!" : "Velkommen til";
 			String findOrCreate = isCurrentUser ? "finder" : "opretter";
 
-			String username = textUI.getInput("Indtast dit navn, så " + findOrCreate + " jeg dig i systemet!");
+			String username = textUI.getInput("Indtast dit navn, så " + findOrCreate + " jeg dig i systemet!", "Navn");
 			String userFileName = App.PROJECTPATH + "/data/" + username + ".csv";
 
 			textUI.clearConsole();
@@ -16,10 +15,10 @@ public class StartMenu {
 			if (isCurrentUser) {
 				File f = new File(userFileName);
 				if (f.exists()) {
-					textUI.displayMessage("Jeg fandt en fil med dit navn!");
+					textUI.displayMessage("Jeg fandt dig i fandt dig i systemet!");
 					return f;
 				} else {
-					textUI.displayMessage("Jeg fandt ikke en fil med dit navn... Prøv igen.");
+					textUI.displayMessage("Jeg kunne ikke finde dig... Prøv igen.");
 				}
 			} else {
 				File f = fileIO.createFile(userFileName);
