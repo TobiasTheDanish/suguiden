@@ -13,7 +13,9 @@ public class FileIO {
 	public File createFile(String fileName) {
 		try {
 			File file = new File(fileName);
-			file.createNewFile();
+			if (!file.createNewFile()) {
+				System.out.println("Jeg fandt dig allerede i systemet");
+			}
 
 			Collections.addAll(emptyMonthList, emptyMonthArray);
 			writeToFile(file, emptyMonthList);

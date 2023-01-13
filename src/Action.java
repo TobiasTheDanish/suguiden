@@ -1,4 +1,6 @@
 public enum Action {
-	Register_new,
-	Register_again,
+	Registrer_en_ny_måned,
+	Omregistrer_en_måned,
+	Vis_overblik,
+	Afslut_program
 }

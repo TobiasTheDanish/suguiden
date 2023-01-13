@@ -1,19 +1,32 @@
 import java.util.ArrayList;
 
 public class SelectionMenu {
-	String[] options = { "Registrer ny måned", "Omregistrer en måned" };
 
-	public Action selectAction(TextUI ui) {
+	public Action selectAction(TextUI ui, Action[] options) {
+		String[] optionStrings = changeActionToString(options);
 		while (true) {
-			ui.displayOptions("Hvordan kunne du tænke dig at registrere?", options);
+			ui.displayOptions("Hvad kunne du tænke dig at gøre?", optionStrings);
 			try {
 				ui.displayMessage("");
 				int actionIndex = ui.getIntInput("Indtast tallet for den mulighed du ønsker") -1;
-				return Action.values()[actionIndex];
+				return options[actionIndex];
 			} catch(IndexOutOfBoundsException e) {
 				ui.displayMessage("Whoops, det tal var enten for stort eller småt. Prøv igen.");
 			}
 		}
+	}
+
+	private String[] changeActionToString(Action[] options)
+	{
+		String[] out = new String[options.length];
+
+		for (int i = 0; i < out.length; i++) {
+			String actionString = options[i].toString();
+
+			out[i] = actionString.replace("_", " ");
+		}
+
+		return out;
 	}
 
 	public Month selectNewMonth(ArrayList<Month> months, TextUI ui) {

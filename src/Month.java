@@ -57,4 +57,11 @@ public class Month {
 	public void setRegistered(boolean isRegistered) {
 		this.isRegistered = isRegistered;
 	}
+
+	@Override
+	public String toString()
+	{
+		return getName() + ":" +
+				"\n|  -  " + getSalary() + "/" + getMaxSalary();
+	}
 }
